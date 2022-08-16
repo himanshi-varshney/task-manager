@@ -1,0 +1,50 @@
+<div>
+    <div class="title">
+      <span>Task Manager</span>
+    </div>
+    <div class="container">
+      <ng-container *ngFor='let taskCard of taskList; let i = index'>
+        <div class="task-card">
+          <span class="task-card-header">
+            {{taskCard.name}}
+          </span>
+          <ng-container *ngFor="let task of taskCard.tasks">
+            <div class="task">
+              <span class="task-description">{{task}}</span>
+            </div>
+          </ng-container>
+  
+          <ng-container *ngIf="taskCard.displayCardInputArea">
+            <div class="task">
+              <form #cardForm="ngForm">
+                <textarea type="text" name="cardName" [(ngModel)]="cardName" placeholder="Enter task name"
+                  required></textarea>
+                <div>
+                  <button class="button-action primary" type="submit" [disabled]="!cardForm.valid"
+                    (click)="addCard(taskCard)"> OK</button>
+                  <button class="button-action secondary" (click)="removeCard(taskCard)">Cancel</button>
+                </div>
+              </form>
+            </div>
+          </ng-container>
+          <button type="button" class="button-link" (click)="invokeCard(taskCard)">+ Add a Task</button>
+        </div>
+      </ng-container>
+  
+      <div *ngIf="displayCard" class="task-card">
+        <form #taskForm="ngForm">
+          <input class="task-card-input" type="text" name="name" [(ngModel)]="newTask.name"
+            placeholder="Enter task card name" required>
+          <div>
+            <button class="button-action primary" type="submit" [disabled]="!taskForm.valid" (click)="addTask()">
+              OK</button>
+            <button class="button-action secondary" (click)="removeTask()">Cancel</button>
+          </div>
+        </form>
+      </div>
+  
+      <div>
+        <button type="button" class="button-link" (click)="invokeBox()">+ Add Another List</button>
+      </div>
+    </div>
+  </div>

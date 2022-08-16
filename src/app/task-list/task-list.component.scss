@@ -1,0 +1,84 @@
+.title {
+    text-align: center;
+    font-size: 30px;
+    padding-bottom: 20px;
+ }
+
+ .container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .button-action {
+       &.primary {
+          border: 1px solid forestgreen;
+          background: forestgreen;
+       }
+
+       &.secondary {
+          border: 1px solid indianred;
+          background: indianred;
+       }
+
+       margin-right: 5px;
+       border-radius: 3px;
+       width: 65px;
+       padding: 5px 10px;
+       cursor: pointer;
+
+       &:disabled {
+          background-color: grey;
+          border: 1px solid grey;
+          cursor: not-allowed;
+       }
+    }
+
+    .button-link {
+       border: none;
+       background: none;
+       color: dodgerblue;
+       cursor: pointer;
+
+       &:hover {
+          color: blueviolet !important;
+       }
+    }
+
+    .task-card {
+       border: 2px solid;
+       border-radius: 5px;
+       margin-right: 20px;
+       margin-bottom: 20px;
+       padding: 20px;
+       width: 250px;
+       min-width: 250px;
+       background-color: antiquewhite;
+
+       .task-card-input {
+          width: 100%;
+          height: 30px;
+          margin-bottom: 10px;
+          border-radius: 3px;
+       }
+
+       .task-card-header {
+          text-align: center;
+          display: block;
+          font-weight: bold;
+          margin-bottom: 20px;
+          font-size: 20px;
+       }
+
+       .task {
+          border: 1px solid;
+          margin-bottom: 10px;
+          padding: 10px;
+          border-radius: 2px;
+          background-color: darkgray;
+
+          .task-description {
+             word-break: break-all;
+          }
+       }
+    }
+ }
